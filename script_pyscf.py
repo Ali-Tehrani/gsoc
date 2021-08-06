@@ -15,8 +15,16 @@ from pyscf import gto, scf
 
 iodata = load_one("./water_b3lyp_sto3g.fchk")
 contr, type = from_iodata(iodata)
-# basis = parse_nwchem("cc-pcvtz.0.nw")
+# CC-PVDTZ
+# basis = parse_nwchem("./data/cc-pcvtz.0.nw")
 # contr = make_contractions(basis, ["O"], np.array([[0., 0., 0.]]))
+# basis = evaluate_basis(contr, grid_3d, coord_type=["cartesian] * 6 + ["spherical"] * 3)
+
+# 6-311G*
+# basis = parse_nwchem("./data/6-311g_st.0.nw")
+# contr = make_contractions(basis, ["O"], np.array([[0., 0., 0.]]))
+# basis = evaluate_basis(contr, grid_3d, coord_type=["cartesian] * 7 + ["spherical"])
+
 grid_3d = np.random.random((5,3))
 print([c.angmom_components_cart for c in contr])
 # GBASSIS: Eval atomic orbitals
